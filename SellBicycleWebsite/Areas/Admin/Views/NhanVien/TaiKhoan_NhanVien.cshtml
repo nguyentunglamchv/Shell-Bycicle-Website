@@ -1,0 +1,427 @@
+﻿
+@model IEnumerable<SellBicycleWebsite.Models.NhanVien_DN>
+@{
+    ViewBag.Title = "NhanVien";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_layout.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+                        <!-- card1 start -->
+                        <div class="col-md-12 col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-header-left">
+                                        <h4>Danh sách tài khoản của nhân viên</h4>
+                                    </div>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+
+                                            <li>
+                                                <button data-toggle="modal" data-target="#addcustomeModal"
+                                                        class="btn btn-primary">
+                                                    <i class="ti-plus"></i>
+                                                </button>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    @using (Html.BeginForm("TaiKhoan_NhanVien", "NhanVien", FormMethod.Get))
+                                    {
+                                        <form>
+                                            <div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12">
+
+                                                    <input class="form-control" name="searchString" type="text" placeholder="Tìm kiếm theo tên khách hàng, mã khách hàng...">
+                                                    <br>
+
+
+                                                </div>
+
+                                            </div>
+                                        </form>
+
+
+
+
+                                    }
+
+                                    <div class="row">
+
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="row">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- form / end -->
+                                    <!-- table / start -->
+                                    <div class="card-block table-border-style">
+                                        <div class="table-wrap table-wrapper-scroll-y" id="style-1">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align: center">Mã nhân viên</th>
+                                                            <th style="text-align: center">Tên đăng nhập</th>
+                                                            <th style="text-align: center">Mật khẩu</th>
+                                                            <th style="text-align: center">Quyền</th>
+
+                                                            <th style="text-align: center">Thao tác</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="myTable">
+                                                        @foreach (var it in Model)
+                                                        {
+
+
+                                                            <tr class="accordion-toggle">
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.ma_NV)</td>
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.tendn_NV)</td>
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.mk_NV)</td>
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.QuyenNV.tenquyen)</td>
+
+
+
+                                                                <td style="text-align: center">
+                                                                    <div class="btn-group" role="group"
+                                                                         data-toggle="tooltip"
+                                                                         data-placement="top">
+                                                                        <button type="button" class="btn btn-warning btn-sm waves-effect waves-light"
+                                                                                onclick="location.href = '@Url.Action("SuaTaiKhoan",new { id = it.ma_NV,tendn =it.tendn_NV})'">
+                                                                            <i class="ti-pencil" aria-hidden="true"></i>
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-danger btn-sm waves-effect waves-light"
+                                                                                onclick="location.href = '@Url.Action("XoaTaiKhoan",new { id = it.ma_NV, tendn=it.tendn_NV})'">
+                                                                            <i class="ti-trash"
+                                                                               aria-hidden="true"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="no_hover">
+                                                                <td colspan="4" style="padding:0px">
+                                                                    <div class="accordion-body collapse"
+                                                                         id="col1">
+                                                                        <div id="exTab2">
+                                                                            <ul class="nav nav-tabs md-tabs"
+                                                                                role="tablist">
+                                                                                <li class="nav-item">
+                                                                                    <a class="nav-link active"
+                                                                                       data-toggle="tab"
+                                                                                       href="#3" role="tab">Thông tin</a>
+
+                                                                                    <div class="slide"></div>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a class="nav-link"
+                                                                                       data-toggle="tab"
+                                                                                       href="#4" role="tab">Đơn hàng</a>
+
+                                                                                    <div class="slide"></div>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active"
+                                                                                     id="3">
+                                                                                    <div class="box-info">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-6 col-xl-6">
+                                                                                                <ul class="list-info border-r">
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <strong>Họ và tên:</strong>
+
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <strong>
+                                                                                                                Điện thoại
+
+                                                                                                            </strong>
+
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <strong>
+                                                                                                                Địa chỉ:
+
+                                                                                                            </strong>
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <strong>
+                                                                                                                Email
+                                                                                                                :
+                                                                                                            </strong>
+
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                            <!-- col / end -->
+                                                                                            <div class="col-md-6 col-xl-6">
+                                                                                                <ul class="list-info border-r">
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <strong>
+                                                                                                                Giới tính:
+                                                                                                            </strong>
+
+                                                                                                        </span>
+                                                                                                    </li>
+
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <strong>
+                                                                                                                Ghichú:
+
+                                                                                                            </strong>
+                                                                                                            abc
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                            <!-- col / end -->
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button"
+                                                                                                    data-dismiss="modal"
+                                                                                                    data-toggle="modal"
+                                                                                                    data-target="#editcustomeModal"
+                                                                                                    class="btn btn-warning btn-outline-warning">
+                                                                                                <i class="ti-pencil"></i>
+                                                                                            </button>
+                                                                                            <button type="button"
+                                                                                                    data-dismiss="modal"
+                                                                                                    data-toggle="modal"
+                                                                                                    data-target="#deleteModal"
+                                                                                                    class="btn btn-danger btn-outline-danger">
+                                                                                                <i class="ti-trash"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="tab-pane"
+                                                                                     id="4">
+                                                                                    <div class="table-wrap">
+                                                                                        <table class="table table-striped">
+                                                                                            <thead>
+                                                                                                <tr>
+                                                                                                    <th style="text-align: center">
+                                                                                                        Thời
+                                                                                                        gian
+                                                                                                    </th>
+
+                                                                                                    <th style="text-align: center">
+                                                                                                        Mã thuốc
+                                                                                                    </th>
+                                                                                                    <th style="text-align: center">
+                                                                                                        Số lượng
+                                                                                                    </th>
+                                                                                                    <th style="text-align: center">
+                                                                                                        Tổng
+                                                                                                        tiền
+                                                                                                    </th>
+                                                                                                    <th style="text-align: center">
+                                                                                                        Tình
+                                                                                                        trạng
+                                                                                                    </th>
+                                                                                                </tr>
+                                                                                            </thead>
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td> <a href="hoadon.html">12/09/2021 14:30</a></td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td>
+                                                                                                        <div class="status cancel">
+                                                                                                            Hủy
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td> <a href="hoadon.html">12/09/2018 14:30</a></td>
+                                                                                                    <td> </td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td>
+                                                                                                        <div class="status tranp">
+                                                                                                            Đã
+                                                                                                            giao
+                                                                                                            hàng
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td> <a href="hoadon.html">12/09/2018 14:30</a></td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td>
+                                                                                                        <div class="status not_tran">
+                                                                                                            Chưa
+                                                                                                            giao
+                                                                                                            hàng
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td> <a href="hoadon.html">12/09/2018 14:30</a></td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td>
+                                                                                                        <div class="status comp">
+                                                                                                            Hoàn
+                                                                                                            thành
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                        <!-- pagination / start -->
+                                                                                        <nav aria-label="Page navigation example">
+                                                                                            <ul class="pagination">
+                                                                                                <li class="page-item">
+                                                                                                    <a class="page-link"
+                                                                                                       href="#"
+                                                                                                       aria-label="Previous">
+                                                                                                        <span aria-hidden="true">&laquo;</span>
+                                                                                                        <span class="sr-only">Trước</span>
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                                <li class="page-item">
+                                                                                                    <a class="page-link"
+                                                                                                       href="#">1</a>
+                                                                                                </li>
+                                                                                                <li class="page-item">
+                                                                                                    <a class="page-link"
+                                                                                                       href="#">2</a>
+                                                                                                </li>
+                                                                                                <li class="page-item">
+                                                                                                    <a class="page-link"
+                                                                                                       href="#">3</a>
+                                                                                                </li>
+                                                                                                <li class="page-item">
+                                                                                                    <a class="page-link"
+                                                                                                       href="#"
+                                                                                                       aria-label="Next">
+                                                                                                        <span aria-hidden="true">&raquo;</span>
+                                                                                                        <span class="sr-only">Sau</span>
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                        </nav>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <div class="modal fade" id="addcustomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                                 aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg" role="document">
+
+                                                                    @using (Html.BeginForm("ThemTaiKhoan", "NhanVien"))
+                                                                    {
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header add-modal">
+                                                                                <h5 class="modal-title" id="exampleModalLabel">Thêm tài khoản</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="type_cu">
+
+
+                                                                                </div>
+                                                                                <form action="">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group">
+                                                                                                <label for="exampleInputEmail1">Mã nhân viên</label>
+                                                                                                <div class="input-group">
+                                                                                                    <span class="input-group-icon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                                                                                                    <input type="text" name="ma_NV" placeholder="" class="form-control">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label for="exampleInputEmail1">Tên đăng nhập</label>
+                                                                                                <div class="input-group">
+                                                                                                    <span class="input-group-icon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                                                                                                    <input type="text" name="tendn_NV" placeholder="" class="form-control">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label for="exampleInputEmail1">Mật khẩu</label>
+                                                                                                <div class="input-group">
+                                                                                                    <span class="input-group-icon"><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></span>
+                                                                                                    <input type="text" name="mk_NV" placeholder="Nam/Nữ" class="form-control">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label for="exampleInputEmail1">Mã quyền</label>
+                                                                                                <div class="input-group">
+                                                                                                    <span class="input-group-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                                                                    <input type="text" name="maquyen" placeholder="yyyy-mm-dd" class="form-control">
+                                                                                                </div>
+                                                                                            </div>
+
+
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                                                                        <button type="submit" name="submit" class="btn btn-primary">
+                                                                                            Lưu
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+
+                                                                        </div>
+
+
+                                                                    }
+                                                                </div>
+                                                            </div>
+
+
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- table / end -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

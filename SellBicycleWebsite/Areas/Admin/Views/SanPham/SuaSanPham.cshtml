@@ -1,0 +1,88 @@
+﻿@model SellBicycleWebsite.Models.SanPham
+
+@{
+    ViewBag.Title = "SuaSanPham";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_layout.cshtml";
+}
+<link href="~/Areas/Admin/assets/css/style.css" rel="stylesheet">
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                        <div class="form-style-2">
+                            <div class="form-style-1-heading"><h1>Sửa sản phẩm</h1></div>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.ma_SP)
+                            <label for="field1">
+                                <span>Tên sản phẩm</span>
+                                @Html.EditorFor(model => model.ten_SP, new { htmlAttributes = new { @class = "input-field" } })
+
+                            </label>
+                            <label for="field2">
+                                <span>Mã nhà cung cấp</span>
+                                @Html.EditorFor(model => model.ma_NCC, new { htmlAttributes = new { @class = "input-field" } })
+
+                            </label>
+                            <label for="field3">
+                                <span>Số lượng</span>
+                                @Html.EditorFor(model => model.soluong, new { htmlAttributes = new { @class = "input-field" } })
+
+                            </label>
+                            <label for="field4">
+                                <span>Đơn giá bán</span>
+                                @Html.EditorFor(model => model.dongiaban, new { htmlAttributes = new { @class = "input-field" } })
+
+                            </label>
+                            <label for="field5">
+                                <span>Đơn giá nhập</span>
+                                @Html.EditorFor(model => model.dongianhap, new { htmlAttributes = new { @class = "input-field" } })
+
+                            </label>
+                            <label for="field6">
+                                <span>Thông số</span>
+                                @Html.EditorFor(model => model.thongso, new { htmlAttributes = new { @class = "textarea-field" } })
+
+                            </label>
+                            <label for="field7">
+                                <span>Mã loại</span>
+                                @Html.EditorFor(model => model.maLoai, new { htmlAttributes = new { @class = "input-field" } })
+
+                            </label>
+                            <label for="field8">
+                                <span>Mô tả</span>
+                                @Html.EditorFor(model => model.mota, new { htmlAttributes = new { @class = "input-field" } })
+
+                            </label>
+                            <label for="field9">
+                                <span>Link ảnh đại diện</span>
+                                @Html.EditorFor(model => model.link_anhdaidien, new { htmlAttributes = new { @class = "input-field" } })
+
+                            </label>
+                            <label for="field10">
+                                <span>Khuyến mãi</span>
+                                @Html.EditorFor(model => model.khuyenmai, new { htmlAttributes = new { @class = "input-field" } })
+
+                            </label>
+
+                            <label><span> </span><input type="submit" value="Save" /></label>
+
+                        </div>
+                        }
+
+
+
+                        <div class="col-md-offset-2 col-md-10">
+                            <button class="btn-bg-c-blue" onclick="location.href = '@Url.Action("Back to List", "Index")'"></button>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

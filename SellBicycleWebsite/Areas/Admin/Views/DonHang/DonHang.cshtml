@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "DonHang";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_layout.cshtml";
+}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+
+
+                        <div class="col-md-12 col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-header-left">
+                                       <strong><h2>Danh sách đơn hàng</h2></strong> 
+
+                                    </div>
+                                    <div class="card-header-right">
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    
+                                    <!-- form / end -->
+                                    <!-- table / start -->
+                                    <div class="card-block table-border-style">
+                                        <div class="table-wrap table-wrapper-scroll-y" id="style-1">
+                                            <div class="table-responsive">
+                                                <div class="card-header-left">
+                                                    <h4>Danh sách đơn hàng chưa xử lý</h4>
+                                                </div>
+                                                <div class="row">
+
+                                                    @Html.Action("DonHangChuaXuLy_Partial", "DonHang")
+                                                </div>                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- table / end -->
+                                    <div class="card-block table-border-style">
+                                        <div class="table-wrap table-wrapper-scroll-y" id="style-1">
+                                            <div class="table-responsive">                                              
+                                                <div class="card-header-left">
+                                                    <h4>Danh sách đơn hàng đã xử lý</h4>
+                                                </div>
+                                                <div class="row">
+                                                    @Html.Action("DonHangDaXuLy_Partial", "DonHang")
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="addcustomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            @using (Html.BeginForm("ThemNCC", "SanPham"))
+                                            {
+
+                                                <div class="modal-content">
+                                                    <div class="modal-header add-modal">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Thêm nhà cung cấp</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Nhập tên nhà cung cấp</label>
+                                                                    <div class="input-group">
+
+                                                                        <input type="text" name="ten_NCC" placeholder="Nhập tên ncc" required="required" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Email</label>
+                                                                    <div class="input-group">
+
+                                                                        <input type="text" name="email_NCC" placeholder="Nhập tên ncc" required="required" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Địa chỉ</label>
+                                                                    <div class="input-group">
+
+                                                                        <input type="text" name="diachi_NCC" placeholder="Địa chỉ" required="required" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Số điện thoại</label>
+                                                                    <div class="input-group">
+
+                                                                        <input type="text" name="std_NCC" placeholder="(+84)" required="required" class="form-control">
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                                        <button type="submit" name="submit" class="btn btn-primary">
+                                                            Lưu
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="styleSelector"></div>
+        </div>
+    </div>
+</div>

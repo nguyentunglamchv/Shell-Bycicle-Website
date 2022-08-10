@@ -1,0 +1,533 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_layout.cshtml";
+}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+
+                        <!-- card1 start -->
+                        <div class="col-md-6 col-xl-6">
+                            <div class="card thumb widget-card-1 ">
+                                <div class="card-block-small">
+                                    <i class="icofont icofont-ui-home bg-c-blue card1-icon"></i>
+                                    <span class="text-c-blue f-w-600">Hóa đơn</span>
+                                    <h4 class="text-c-blue">Danh sách hóa đơn</h4>
+                                    <div>
+                                        <span class="f-left m-t-10 text-muted">
+                                            <i class="text-c-pink f-16 icofont icofont-calendar m-r-10"></i>20/11/2021
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- card1 end -->
+                        <!-- card1 start -->
+                        <div class="col-md-6 col-xl-6">
+                            <div class="card thumb widget-card-1" >
+                                <div class="card-block-small">
+                                    <i class="icofont icofont-ui-home bg-c-blue card1-icon"></i>
+                                    <span class="text-c-blue f-w-600">Doanh thu</span>
+                                    <h4 class="text-c-blue">Báo cáo doanh thu </h4>
+                                    <div>
+                                        <span class="f-left m-t-10 text-muted">
+                                            <i class="text-c-pink f-16 icofont icofont-calendar m-r-10"></i>20/11/2021
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- card1 end -->
+                        <!-- Statestics Start -->
+                        <div class="col-md-12 col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Lịch sử bài viết</h3>
+                                    <div class="card-header-left "></div>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+                                            <li>
+                                                <i class="icofont icofont-refresh reload-card"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <!-- form / start -->
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Từ Ngày</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-icon">
+                                                            <i class="fa fa-clock-o"
+                                                               aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" id="datepicker" placeholder="Từ ngày" data-provide="datepicker" data-date-container="#my-date" name="date" required="required" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Tới Ngày</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-icon">
+                                                            <i class="fa fa-clock-o"
+                                                               aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" id="datepicker_end" placeholder="Tới ngày" data-provide="datepicker" data-date-container="#my-date" name="date" required="required" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">
+                                                        Chọn thời
+                                                        gian
+                                                    </label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-icon">
+                                                            <i class="fa fa-clock-o"
+                                                               aria-hidden="true"></i>
+                                                        </span>
+                                                        <select name="select" class="form-control">
+                                                            <option class="p-select-default" value="">
+                                                                Hôm nay
+                                                            </option>
+                                                            <option value="7">7 Ngày qua</option>
+                                                            <option value="7">15 Ngày qua</option>
+                                                            <option value="7">1 Tháng qua</option>
+                                                            <option value="7">3 Tháng qua</option>
+                                                            <option value="7">6 Tháng qua</option>
+                                                            <option value="7">9 Tháng qua</option>
+                                                            <option value="7">12 Tháng qua</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- form / end -->
+                                    <!-- table / start -->
+                                    <div class="card-block table-border-style">
+                                        <div class="table-wrap table-wrapper-scroll-y" id="style-1">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Thời gian</th>
+                                                            <th width="40%">Tên bài viết</th>
+                                                            <th>Tên người đăng</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>02/03/2019 14:30</td>
+                                                            <td>Xe đạp thể thao giúp cuộc sống khỏe mạnh hơn</td>
+                                                            <td>Nguyễn Ngọc Nhi</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>02/03/2019 14:30</td>
+                                                            <td>Những dòng xe máy điện nên mua năm 2022</td>
+                                                            <td>Nguyễn Tùng Lâm</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- table / end -->
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="styleSelector"></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="passChange" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header add-modal">
+                <h5 class="modal-title" id="exampleModalLabel">Đổi mật khẩu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nhập mật khẩu cũ</label>
+                        <div class="input-group">
+                            <span class="input-group-icon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                            <input type="password" placeholder="Nhập mật khẩu cũ" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nhập mật khẩu mới</label>
+                        <div class="input-group">
+                            <span class="input-group-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            <input type="password" placeholder="Nhập mật khẩu mới" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nhập lại mật khẩu mới</label>
+                        <div class="input-group">
+                            <span class="input-group-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            <input type="password" placeholder="Nhập lại mật khẩu mới" required="required" class="form-control">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button onclick="hideImage()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#successModal"
+                        data-dismiss="modal">
+                    Lưu
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editcustomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header add-modal">
+                <h5 class="modal-title" id="exampleModalLabel">Sửa thông tin khách hàng</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="type_cu">
+                    <p class="card-text">
+                        <span>Loại khách: </span>
+                        <label class="block">
+                            <input type="radio" checked="checked" name="select_custype" value="personal"> <span>
+                                Cá
+                                Nhân
+                            </span>
+                        </label>
+                        <label class="block">
+                            <input type="radio" name="select_custype" value="company"> <span>
+                                Công ty
+                            </span>
+                        </label>
+                    </p>
+                </div>
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nhập tên khách hàng</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                                    <input type="text" value="Văn Nam" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nhập số điện thoại</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></span>
+                                    <input type="text" value="0984343121" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nhập địa chỉ</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                    <input type="text" placeholder="Nhập địa chỉ" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nhập Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                    <input type="email" value="aqtsoft@gmail.com" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="">
+                                    Nhóm khách
+                                    hàng
+                                </label>
+                                <div class="input-group padding_">
+                                    <span class="input-group-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                    <select name="select" class="form-control">
+                                        <option class="p-select-default" value="">
+                                            Chọn nhóm khách hàng
+                                        </option>
+                                        <option selected value="7">Bình Thuận</option>
+                                        <option value="7">Ninh Thuận</option>
+                                        <option value="7">TPHCM</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group hidden_com">
+                                <label for="exampleInputEmail1">Nhập tên công ty</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                    <input type="text" value="Hải sản" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group hidden_com">
+                                <label for="exampleInputEmail1">Mã số thuế</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></span>
+                                    <input type="text" placeholder="Nhập mã số thuế" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Ghi chú</label>
+                                <textarea rows="5" cols="5" class="form-control" placeholder="Ghi chú"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button onclick="hideImage()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#successModal"
+                        data-dismiss="modal">
+                    Lưu
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addcustomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header add-modal">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm khách hàng</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="type_cu">
+
+                    <p class="card-text">
+                        <span>Loại khách : </span>
+                        <label class="block">
+                            <input type="radio" checked="checked" name="select_custype" value="personal"> <span>
+                                Cá
+                                Nhân
+                            </span>
+                        </label>
+                        <label class="block">
+                            <input type="radio" name="select_custype" value="company"> <span>
+                                Công ty
+                            </span>
+                        </label>
+                    </p>
+                </div>
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nhập tên khách hàng</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                                    <input type="text" placeholder="Nhập tên khách hàng" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nhập số điện thoại</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></span>
+                                    <input type="text" placeholder="Nhập số điện thoại" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nhập địa chỉ</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                    <input type="text" placeholder="Nhập địa chỉ" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nhập Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                    <input type="text" placeholder="Nhập địa chỉ Email" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="">
+                                    Nhóm khách
+                                    hàng
+                                </label>
+                                <div class="input-group padding_">
+                                    <span class="input-group-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                    <select name="select" class="form-control">
+                                        <option class="p-select-default" value="">
+                                            Chọn nhóm khách hàng
+                                        </option>
+                                        <option value="7">Bình Thuận</option>
+                                        <option value="7">Ninh Thuận</option>
+                                        <option value="7">TPHCM</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group hidden_com">
+                                <label for="exampleInputEmail1">Nhập tên công ty</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                    <input type="text" placeholder="Nhập tên công ty" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group hidden_com">
+                                <label for="exampleInputEmail1">Mã số thuế</label>
+                                <div class="input-group">
+                                    <span class="input-group-icon"><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></span>
+                                    <input type="text" placeholder="Nhập mã số thuế" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Ghi chú</label>
+                                <textarea rows="5" cols="5" class="form-control" placeholder="Ghi chú"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button onclick="hideImage()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#successModal"
+                        data-dismiss="modal">
+                    Lưu
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade level_02" id="groupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header add-modal">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm nhóm khách hàng</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nhập tên nhóm khách hàng</label>
+                        <div class="input-group">
+                            <span class="input-group-icon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                            <input type="text" placeholder="Nhập tên nhóm khách hàng" required="required" class="form-control">
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button onclick="hideImage()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#successModal"
+                        data-dismiss="modal">
+                    Lưu
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="storeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header add-modal">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm chi nhánh</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nhập tên chi nhánh</label>
+                        <div class="input-group">
+                            <span class="input-group-icon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                            <input type="text" placeholder="Nhập tên chi nhánh" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nhập địa chỉ chi nhánh</label>
+                        <div class="input-group">
+                            <span class="input-group-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            <input type="text" placeholder="Nhập địa chỉ chi nhánh" required="required" class="form-control">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button onclick="hideImage()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#successModal"
+                        data-dismiss="modal">
+                    Lưu
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header delete-modal">
+                <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa !</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span>Bạn có chắc muốn xóa không !</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button onclick="hideImage()" type="button" class="btn btn-danger" data-toggle="modal" data-target="#successModal"
+                        data-dismiss="modal">
+                    Xóa
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="card-loader" id="load"><i class="icofont icofont-refresh rotate-refresh"></i></div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header success-modal">
+                <h5 class="modal-title" id="exampleModalLabel">Thành công !</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span>Thực hiện thao tác thành công !</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+

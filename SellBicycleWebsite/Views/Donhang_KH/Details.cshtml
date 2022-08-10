@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SellBicycleWebsite.Models.CT_DonHang>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết đơn hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Sản phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Đơn giá / 1 sản phẩm
+        </th>
+        <th>
+            Thành tiền
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.SanPham.ten_SP)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.soluongban)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.dongiaban)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.thanhtien)
+    </td>
+</tr>}
+
+</table>
+

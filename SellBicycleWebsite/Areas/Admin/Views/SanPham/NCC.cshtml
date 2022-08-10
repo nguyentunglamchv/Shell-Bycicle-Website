@@ -1,0 +1,284 @@
+﻿@model PagedList.IPagedList<SellBicycleWebsite.Models.NCC>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "NCC";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_layout.cshtml";
+}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+
+
+                        <div class="col-md-12 col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-header-left">
+                                        <h4>Danh sách nhà cung cấp sản phẩm</h4>
+
+                                    </div>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+
+                                            <li>
+                                                <button data-toggle="modal" data-target="#addcustomeModal"
+                                                        class="btn btn-primary">
+                                                    <i class="ti-plus"></i>
+                                                </button>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    @using (Html.BeginForm("NCC", "SanPham", FormMethod.Get))
+                                    {
+                                        <form>
+                                            <div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12">
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" name="searchString" type="text" placeholder="Tìm kiếm ...">
+                                                    </div>
+
+                                                    <br>
+                                                </div>
+                                                <div class="col-md-12 col-sm-12">
+                                                    <div class="row">
+                                                        <div class="col-md-4 col-sm-6">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    }
+                                    <!-- form / end -->
+                                    <!-- table / start -->
+                                    <div class="card-block table-border-style">
+                                        <div class="table-wrap table-wrapper-scroll-y" id="style-1">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align: center">Mã NCC</th>
+                                                            <th style="text-align: center">Tên NCC</th>
+                                                            <th style="text-align: center">Địa chỉ NCC</th>
+                                                            <th style="text-align: center">SDT NCC</th>
+                                                            <th style="text-align: center">Email NCC</th>
+                                                            <th style="text-align: center">Thao tác</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="myTable">
+                                                        @foreach (var it in Model)
+                                                        {
+                                                            <!-- group-adcordio / start -->
+                                                            <!-- group-adcordio / start -->
+                                                        <tr class="accordion-toggle" data-toggle="collapse"
+                                                            data-target="#col5">
+                                                            <td style="text-align: center">@Html.DisplayFor(modelItem => it.ma_NCC)</td>
+                                                            <td style="text-align: center">@Html.DisplayFor(modelItem => it.ten_NCC)</td>
+                                                            <td style="text-align: center">@Html.DisplayFor(modelItem => it.diachi_NCC)</td>
+                                                            <td style="text-align: center">@Html.DisplayFor(modelItem => it.std_NCC)</td>
+                                                            <td style="text-align: center">@Html.DisplayFor(modelItem => it.email_NCC)</td>
+
+                                                            <td style="text-align: center">
+                                                                <div class="btn-group" role="group"
+                                                                     data-toggle="tooltip"
+                                                                     data-placement="top">
+                                                                    <button type="button" class="btn btn-warning btn-sm waves-effect waves-light"
+                                                                            onclick="location.href = '@Url.Action("SuaNCC",new {id = it.ma_NCC })'"
+                                                                            data-toggle="modal"
+                                                                            data-target="#editUser">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-danger btn-sm waves-effect waves-light"
+                                                                            onclick="location.href = '@Url.Action("XoaNCC",new {id = it.ma_NCC })'"
+                                                                            data-toggle="modal"
+                                                                            data-target="#deleteModal">
+                                                                        <i class="fa fa-trash"
+                                                                           aria-hidden="true"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                            <tr class="no_hover">
+                                                                <td colspan="4" style="padding:0px">
+                                                                    <div class="accordion-body collapse"
+                                                                         id="col1">
+                                                                        <div id="exTab2">
+                                                                            <ul class="nav nav-tabs md-tabs"
+                                                                                role="tablist">
+                                                                                <li class="nav-item">
+                                                                                    <a class="nav-link active"
+                                                                                       data-toggle="tab"
+                                                                                       href="#3" role="tab">
+                                                                                        Thông
+                                                                                        tin
+                                                                                    </a>
+                                                                                    <div class="slide"></div>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a class="nav-link"
+                                                                                       data-toggle="tab"
+                                                                                       href="#4" role="tab">
+                                                                                        Đơn
+                                                                                        hàng
+                                                                                    </a>
+                                                                                    <div class="slide"></div>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active"
+                                                                                     id="3">
+                                                                                    <div class="box-info">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-6 col-xl-6">
+                                                                                                <ul class="list-info border-r">
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <strong>Tên:</strong>
+
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <strong>
+                                                                                                                Điện thoại
+
+                                                                                                            </strong>
+
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <strong>
+                                                                                                                Địa chỉ:
+
+                                                                                                            </strong>
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <strong>
+                                                                                                                Email
+                                                                                                                :
+                                                                                                            </strong>
+
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                            <!-- col / end -->
+                                                                                            <!-- col / end -->
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button"
+                                                                                                    data-dismiss="modal"
+                                                                                                    data-toggle="modal"
+                                                                                                    data-target="#editcustomeModal"
+                                                                                                    class="btn btn-warning btn-outline-warning">
+                                                                                                <i class="ti-pencil"></i>
+                                                                                            </button>
+                                                                                            <button type="button"
+                                                                                                    data-dismiss="modal"
+                                                                                                    data-toggle="modal"
+                                                                                                    data-target="#deleteModal"
+                                                                                                    class="btn btn-danger btn-outline-danger">
+                                                                                                <i class="ti-trash"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <div class="modal fade" id="addcustomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                                 aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg" role="document">
+                                                                    @using (Html.BeginForm("ThemNCC", "SanPham"))
+                                                                    {
+
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header add-modal">
+                                                                                <h5 class="modal-title" id="exampleModalLabel">Thêm nhà cung cấp</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+
+
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6">
+
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Nhập tên nhà cung cấp</label>
+                                                                                            <div class="input-group">
+
+                                                                                                <input type="text" name="ten_NCC" placeholder="Nhập tên ncc" required="required" class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Email</label>
+                                                                                            <div class="input-group">
+
+                                                                                                <input type="text" name="email_NCC" placeholder="Nhập tên ncc" required="required" class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Địa chỉ</label>
+                                                                                            <div class="input-group">
+
+                                                                                                <input type="text" name="diachi_NCC" placeholder="Địa chỉ" required="required" class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Số điện thoại</label>
+                                                                                            <div class="input-group">
+
+                                                                                                <input type="text" name="std_NCC" placeholder="(+84)" required="required" class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                                                                <button type="submit" name="submit" class="btn btn-primary">
+                                                                                    Lưu
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- table / end -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="styleSelector"></div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,338 @@
+﻿
+
+@model IEnumerable<SellBicycleWebsite.Models.SanPham>
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_layout.cshtml";
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+
+                        <!-- card1 start -->
+                        <div class="col-md-12 col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-header-left">
+                                        <h4>Danh sách sản phẩm</h4>
+
+                                    </div>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+
+                                            <li>
+                                                <button data-toggle="modal" data-target="#addcustomeModal"
+                                                        class="btn btn-primary">
+                                                    <i class="ti-plus"></i>
+                                                </button>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    @using (Html.BeginForm("XeDapTheThao", "SanPham", FormMethod.Get))
+                                    {
+                                        <form>
+                                            <div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12">
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" name="searchString" type="text" placeholder="Tìm kiếm theo tên sản phẩm, mã sản phẩm...">
+                                                        <br>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </form>
+
+
+
+
+                                    }
+
+
+                                    <!-- form / end -->
+                                    <!-- table / start -->
+                                    <div class="card-block table-border-style">
+                                        <div class="table-wrap table-wrapper-scroll-y" id="style-1">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align: center">Mã sản phẩm</th>
+                                                            <th style="text-align: center">Tên sản phẩm</th>
+                                                            <th style="text-align: center">Ảnh</th>
+                                                            <th style="text-align: center">Nhà cung cấp</th>
+                                                            <th style="text-align: center">Số lượng</th>
+                                                            <th style="text-align: center">Đơn giá nhập</th>
+                                                            <th style="text-align: center">Đơn giá bán</th>
+                                                            <th style="text-align: center">Loại sản phẩm</th>
+                                                            <th style="text-align: center">Khuyến mãi</th>
+                                                            <th style="text-align: center">Thao tác</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <!--===========================================tb body=============================================-->
+                                                    <tbody id="myTable">
+                                                        @foreach (var it in Model)
+                                                        {
+                                                            <tr class="accordion-toggle" data-toggle="collapse"
+                                                                data-target="#col1">
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.ma_SP)</td>
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.ten_SP)</td>
+                                                                <td style="text-align: center"><img src="@Url.Content("~/Images/"+it.link_anhdaidien)" width="100" height="100" /></td>
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.NCC.ten_NCC)</td>
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.soluong)</td>
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.dongianhap)</td>
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.dongiaban)</td>
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.Loai_SP.tenLoai)</td>
+                                                                <td style="text-align: center">@Html.DisplayFor(modelItem => it.khuyenmai)%</td>
+                                                                <td style="text-align: center">
+                                                                    <div class="btn-group" role="group"
+                                                                         data-toggle="tooltip"
+                                                                         data-placement="top">
+                                                                        <button type="button" class="btn btn-warning btn-sm waves-effect waves-light"
+                                                                                onclick="location.href = '@Url.Action("ChiTietSanPham",new { id = it.ma_SP})'"
+                                                                                data-toggle="modal"
+                                                                                data-target="#editUser">
+                                                                            <i class="fa fa-edit"></i>
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-danger btn-sm waves-effect waves-light"
+                                                                                onclick="location.href = '@Url.Action("XoaSanPham",new { id = it.ma_SP})'">
+                                                                            <i class="fa fa-trash"
+                                                                               aria-hidden="true"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+
+                                                            <!-- group-adcordio / start -->
+                                                            <div class="modal fade" id="passChange" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header add-modal">
+                                                                            <h5 class="modal-title" id="exampleModalLabel">Đổi mật khẩu</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form action="">
+                                                                                <div class="form-group">
+                                                                                    <label for="exampleInputEmail1">Nhập mật khẩu cũ</label>
+                                                                                    <div class="input-group">
+                                                                                        <span class="input-group-icon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                                                                                        <input type="password" placeholder="Nhập mật khẩu cũ" required="required" class="form-control">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="exampleInputEmail1">Nhập mật khẩu mới</label>
+                                                                                    <div class="input-group">
+                                                                                        <span class="input-group-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                                                        <input type="password" placeholder="Nhập mật khẩu mới" required="required" class="form-control">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="exampleInputEmail1">Nhập lại mật khẩu mới</label>
+                                                                                    <div class="input-group">
+                                                                                        <span class="input-group-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                                                        <input type="password" placeholder="Nhập lại mật khẩu mới" required="required" class="form-control">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                                                            <button onclick="hideImage()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#successModal"
+                                                                                    data-dismiss="modal">
+                                                                                Lưu
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="modal fade" id="addcustomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                                 aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg" role="document">
+                                                                    @using (Html.BeginForm("ThemSanPham", "SanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                                                    {
+                                                                        @Html.AntiForgeryToken()
+
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header add-modal">
+                                                                                <h5 class="modal-title" id="exampleModalLabel">Sản phẩm</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+
+
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6">
+
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Nhập tên sản phẩm</label>
+                                                                                            <div class="input-group">
+
+                                                                                                <input type="text" name="ten_SP" placeholder="Nhập tên sản phẩm" required="required" class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Nhập nhà cung cấp</label>
+                                                                                            <div class="input-group">
+                                                                                                @Html.DropDownList("ma_NCC", null, htmlAttributes: new { @class = "form-control", name = "ma_NCC" })
+                                                                                                <!--input type="text" name="nhomThuoc" placeholder="Nhập nhóm thuốc" required="required" class="form-control"-->
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Nhập số lượng</label>
+                                                                                            <div class="input-group">
+
+                                                                                                <input type="text" name="soluong" placeholder="số lượng" required="required" class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Đơn giá bán</label>
+                                                                                            <div class="input-group">
+
+                                                                                                <input type="text" name="dongiaban" placeholder="Đơn giá bán(VND)" required="required" class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Đơn giá nhập</label>
+                                                                                            <div class="input-group">
+
+                                                                                                <input type="text" name="dongianhap" placeholder="Đơn giá nhập(VND)" required="required" class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Link ảnh</label>
+                                                                                            <div class="input-group">
+                                                                                                <div class="editor-field">
+                                                                                                    <input id="ImagePath" title="Upload a product image"
+                                                                                                           type="file" name="file" />
+                                                                                                </div>
+
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Thông số</label>
+                                                                                            <div class="input-group">
+
+                                                                                                <input type="text" name="thongso" placeholder="thông số kĩ thuật" required="required" class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Loại sản phẩm</label>
+                                                                                            <div class="input-group">
+
+
+                                                                                                @Html.DropDownList("maLoai", null, htmlAttributes: new { @class = "form-control", name = "maLoai", placeholder = "Loại sản phẩm" })
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">Mô tả</label>
+                                                                                            <div class="input-group">
+                                                                                                <input type="text" name="mota" placeholder="hot/new/sale" required="required" class="form-control">
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                                                                <button type="submit" name="submit" class="btn btn-primary" data-target="#successModal">
+                                                                                    Lưu
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    }
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="modal fade" name="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                                 aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header delete-modal">
+                                                                            <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa !</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <span>Bạn có chắc muốn xóa không !</span>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                                                            <button onclick=" location.href = ''" type="button" class="btn btn-danger" data-toggle="modal" data-target="#successModal"
+                                                                                    data-dismiss="modal">
+                                                                                Xóa
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                                 aria-hidden="true">
+                                                                <div class="card-loader" id="load"><i class="icofont icofont-refresh rotate-refresh"></i></div>
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header success-modal">
+                                                                            <h5 class="modal-title" id="exampleModalLabel">Thành công !</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <span>Thực hiện thao tác thành công !</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        }
+                                                    </tbody>
+                                                    <!----------------------------------------------------------------end table body------------------------------------>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- table / end -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Required Jquery -->
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="styleSelector"></div>
+        </div>
+    </div>
+</div>
+
+
+

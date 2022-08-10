@@ -1,0 +1,227 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="slider_section ">
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="container-fluid ">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="detail-box">
+                            <h1>
+                                Xe đạp, xe máy điện
+                            </h1>
+                            <p>
+                                Sale tưng bừng , mừng đại lễ 2-9
+                            </p>
+                            <p>
+                                Nhanh tay mua sắm nhận ưu đãi khủng!!!
+                            </p>
+                            <div class="btn-box">
+                                <a href="" class="btn1">
+                                    Liên hệ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="img-box">
+                            <img src="~/Images/baner-xe-dap-dien-11.jpg" alt="">
+                        </div>
+                        <div class="img-box">
+                            <img src="~/Images/Banner-3.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- shop section -->
+
+<section class="shop_section layout_padding">
+
+    <div class="container">
+        <div class="heading_container ">
+            <h2>
+                Xe đạp thể thao
+            </h2>
+        </div>
+        <div class="row">
+
+            @Html.Action("TopXeDapTheThao", "DanhMuc")
+
+        </div>
+        <div class="btn-box">
+            <a class=" d-flex " href="@Url.Action("XeDapTheThao", "DanhMuc")">
+                Xem thêm
+            </a>
+        </div>
+        <br />
+        <div class="heading_container ">
+            <h2>
+                Xep đạp điện
+            </h2>
+        </div>
+        <div class="row">
+
+            @Html.Action("TopXeDapDien", "DanhMuc")
+
+        </div>
+        <div class="btn-box">
+            <a href="@Url.Action("XeDapDien", "DanhMuc")">
+                Xem thêm
+            </a>
+        </div>
+        <br />
+        <div class="heading_container ">
+            <h2>
+                Xe máy điện
+            </h2>
+        </div>
+        <div class="row">
+
+            @Html.Action("TopXeMayDien", "DanhMuc")
+
+        </div>
+        <div class="btn-box">
+            <a href="@Url.Action("XeMayDien", "DanhMuc")">
+                Xem thêm
+            </a>
+        </div>
+        <br />
+        <div class="heading_container">
+            <h2>
+                Phụ kiện
+            </h2>
+        </div>
+        <div class="row">
+
+            @Html.Action("TopPhuKien", "DanhMuc")
+        </div>
+        <div class="btn-box">
+            <a href="@Url.Action("PhuKien", "DanhMuc")">
+                Xem thêm
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- end shop section -->
+<!-- contact section -->
+
+<section class="contact_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form_container">
+                    <div class="heading_container">
+                        <h2>
+                            Liên hệ với chúng tôi
+                        </h2>
+                    </div>
+                    <form action="">
+                        <div>
+                            <input type="text" placeholder="Họ và tên " />
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" />
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Số điện thoại" />
+                        </div>
+                        <div>
+                            <input type="text" class="message-box" placeholder="Thông điệp của bạn" />
+                        </div>
+                        <div class="d-flex ">
+                            <button>
+                                Gửi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="img-box">
+                    <img src="~/Images/image-contact.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end contact section -->
+<!-- client section -->
+<section class="client_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Đánh giá của khách hàng
+            </h2>
+        </div>
+        <div class="carousel-wrap ">
+            <div class="owl-carousel client_owl-carousel">
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="~/Assets/images/c1.jpg" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_info">
+                                <div class="client_name">
+                                    <h5>
+                                        Mark Thomas
+                                    </h5>
+                                    <h6>
+                                        Quản lý
+                                    </h6>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                Sunshine là một cửa hàng đi đầu trong lĩnh vực xe đạp thể thao tại Việt Nam , 
+                                chúng tôi luôn đặt sự uy tín và chất lượng lên hàng đầu cũng với đó là tiêu chí chí " Hài lòng khách đến , 
+                                vừa lòng khách đi "  luôn coi khách hàng là thượng đế vì thế mà khách hàng khi đến với 
+                                Sunshine luôn cảm thấy vô cùng hài lòng về chất lượng phục vụ tận tình của chúng tôi , 
+                                cùng với đó là sự tin tưởng nhất định về độ đảm bảo, chất lượng của mỗi sản sản phẩm mà khách hàng đã mua tại Sunshine .
+                                
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="~/Assets/images/c2.jpg" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_info">
+                                <div class="client_name">
+                                    <h5>
+                                        Alina Hans
+                                    </h5>
+                                    <h6>
+                                        Khách hàng
+                                    </h6>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                Chiếc xe đạp SAVA X3 màu đỏ đen tôi mua tại Sunshine rất đẹp , qua tìm hiểu và cũng như được shop giới thiệu tôi rất tin tưởng shop và đã đặt 100% 
+                                số tiền cho shop . Shop đã phục vụ rất tận tình,  chu đáo gửi hàng cho tôi rất nhanh và chuyện nghiệp khuyến tôi 
+                                rất hài lòng về shop . Sản phẩm sau khi tôi nhận được đúng là rất đáng đồng tiền bát gạo giống hệt những gì mà 
+                                shop đã quảng cáo
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end client section -->

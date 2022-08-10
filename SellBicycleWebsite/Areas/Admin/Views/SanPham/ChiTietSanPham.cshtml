@@ -1,0 +1,102 @@
+﻿@model SellBicycleWebsite.Models.SanPham
+
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_layout.cshtml";
+}
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+                       
+
+                        <div>
+                            <h4>Sản phẩm</h4>
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    Tên sản phẩm
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ten_SP)
+                                </dd>
+
+                                <dt>
+                                    Mã nhà cung cấp
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ma_NCC)
+                                </dd>
+
+                                <dt>
+                                    Số lượng
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.soluong)
+                                </dd>
+
+                                <dt>
+                                   Đơn giá bán
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.dongiaban)
+                                </dd>
+
+                                <dt>
+                                   Đơn giá nhập
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.dongianhap)
+                                </dd>
+
+                                <dt>
+                                   Thông số kĩ thuật
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.thongso)
+                                </dd>
+
+                                <dt>
+                                    Loại sản phẩm 
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.maLoai)
+                                </dd>
+
+                                <dt>
+                                    Mô tả
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.mota)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.link_anhdaidien)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.link_anhdaidien)
+                                </dd>
+
+                            </dl>
+                        </div>
+                        <div class="col-md-10">
+                            @Html.ActionLink("Edit", "SuaSanPham", new { id = Model.ma_SP }) |
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

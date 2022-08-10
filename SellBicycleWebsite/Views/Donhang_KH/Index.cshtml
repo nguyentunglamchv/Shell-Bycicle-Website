@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SellBicycleWebsite.Models.DonHang>
+
+@{ ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>Danh sách đơn hàng</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Họ tên
+        </th>
+        <th>
+            Ngày đặt
+        </th>
+        <th>
+            Tình trạng đơn hàng
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.KhachHang.ten_KH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.thoigian)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.trangthai)
+    </td>
+    <td>
+        <button class="btn-primary">
+            @Html.ActionLink("Chi tiết", "Details", new { id = item.ma_DH }, new { @style = "color:white;" })
+        </button>
+
+    </td>
+</tr>}
+
+</table>

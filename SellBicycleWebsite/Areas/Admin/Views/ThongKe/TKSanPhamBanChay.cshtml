@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "TKSanPhamBanChay";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_layout.cshtml";
+}
+
+
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+
+                    <div class="row">
+                        <!-- card1 start -->
+                        <div class="col-md-12 col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-header-left">
+                                        <h4>Top5 sản phẩm bán chạy</h4>
+                                    </div>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+
+                                            <li>
+                                                <i class="icofont icofont-refresh reload-card"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <!-- table / start -->
+                                    <div class="card-block table-border-style">
+                                        <div class="table-wrap table-wrapper-scroll-y" id="style-1">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align: center" width="10%">Tên sản phẩm</th>
+                                                            <th style="text-align: center" width="10%">Số lượng đã bán</th>
+                                                            
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+
+                                                        @foreach (var it in ViewBag.MyList)
+                                                        {
+                                                            <tr class="accordion-toggle" data-toggle="collapse"
+                                                                data-target="#col1">
+                                                                <td style="text-align: center">@it.tensp</td>
+                                                                <td style="text-align: center">@it.soluongban</td>
+                                                                
+
+
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- table / end -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div id="styleSelector"></div>
+        </div>
+    </div>
+</div>
+

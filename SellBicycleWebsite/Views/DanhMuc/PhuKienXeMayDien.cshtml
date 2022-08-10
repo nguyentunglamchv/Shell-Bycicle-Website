@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "PhuKienXeMayDien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "XeDapTheThao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="shop_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Xe đạp thể thao
+            </h2>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-6 col-xl-3">
+                    <div class="box">
+                        <a href="@Url.Action("xemchitiet", new {@Masp=item.ma_SP })">
+                            <div class="img-box">
+                                <img src=@Url.Content("~/Images/" + item.link_anhdaidien) />
+                            </div>
+                            <div class="detail-box">
+                                <h7>
+                                    @item.ten_SP
+                                </h7>
+                                <br />
+
+                            </div>
+                            <div class="detail-box">
+                                <h7>
+                                    Giá:
+                                    <span>
+                                        @item.dongiaban  (-@item.khuyenmai %)
+                                    </span>
+                                </h7>
+                            </div>
+                            <div class="new">
+                                <span>
+                                    @item.mota
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>}
+
+        </div>
+    </div>
+</section>
+
+
+

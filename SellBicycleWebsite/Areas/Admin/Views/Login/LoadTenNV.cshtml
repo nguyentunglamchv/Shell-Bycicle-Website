@@ -1,0 +1,22 @@
+﻿@{ var u = Session["nv"] as SellBicycleWebsite.Models.NhanVien; }
+<ul class="nav-right">
+    <li class="user-profile header-notification">
+        <a href="#!">
+
+            <span>@u.ten_NV</span>
+            <i class="ti-angle-down"></i>
+        </a>
+        <ul class="show-notification profile-notification">
+            <li>
+                <span data-toggle="modal" data-target="#passChange">
+                    <i class="ti-lock"></i> Đổi mật khẩu
+                </span>
+            </li>
+            <li>
+                <a href="@Url.Action("Logout","Login")">
+                    <i class="ti-layout-sidebar-left"></i> Đăng xuất
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

@@ -1,0 +1,65 @@
+﻿@model SellBicycleWebsite.Models.SanPham
+
+@{
+    ViewBag.Title = "xemchitiet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="~/Assets/js/jquery-3.4.1.min.js"></script>
+<link href="~/Assets/css/Product_detail.css" rel="stylesheet">
+<script src="~/Assets/js/Product_detail.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+<div class="container">
+    <div class="card">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">
+
+                    <div class="preview-pic tab-content">
+                      
+                        <div class="tab-pane active" id="pic-1"><img src="@Url.Content("~/Images/" + @Model.link_anhdaidien)" /></div>
+                        <div class="tab-pane" id="pic-2"><img src="@Url.Content("~/Images/" + @Model.link_anhdaidien)" /></div>
+                        <div class="tab-pane" id="pic-3"><img src="@Url.Content("~/Images/" + @Model.link_anhdaidien)" /></div>
+                        <div class="tab-pane" id="pic-4"><img src="@Url.Content("~/Images/" + @Model.link_anhdaidien)" /></div>
+                        <div class="tab-pane" id="pic-5"><img src="@Url.Content("~/Images/" + @Model.link_anhdaidien)" /></div>
+                    </div>
+                    
+
+                </div>
+                <div class="details col-md-6">
+                    <h3 class="product-title">@Model.ten_SP</h3>
+                    <div class="rating">
+                        <div class="stars">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <span class="review-no">41 reviews</span>
+                    </div>
+                    <p class="product-description"><strong>Thông tin chi tiết:</strong> @Model.thongso </p>
+                    <h4 class="price">Giá: <span>@Model.dongiaban đồng</span></h4>
+                    <p class="vote">Khuyễn mãi:<strong> @Model.khuyenmai% </strong></p>
+                    
+                    <div class="action">
+                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = Model.ma_SP, @strURL = Request.Url.ToString() }))
+                        {
+                            <input type="submit" class="add-to-cart btn btn-default" value="Thêm vào giỏ" id="bgnGioHang" />
+                        }
+
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

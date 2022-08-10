@@ -1,0 +1,95 @@
+﻿@model SellBicycleWebsite.Models.NhanVien
+
+@{
+    ViewBag.Title = "ChiTietNhanVien";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_layout.cshtml";
+}
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+                        <h2>Thông tin nhân viên</h2>
+
+                        <div>
+                           
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.ten_NV)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ten_NV)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.ngaysinh_NV)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ngaysinh_NV)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.ma_DV)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ma_DV)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.email_NV)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.email_NV)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.sdt_NV)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.sdt_NV)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.diachi_NV)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.diachi_NV)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.chuvu)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.chuvu)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.batdau)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.batdau)
+                                </dd>
+
+                            </dl>
+                        </div>
+                        <p>
+                            @Html.ActionLink("Sửa thông tin", "SuaNhanVien", new { id = Model.ma_NV }) |
+                            @Html.ActionLink("Quản lý tài khoản", "TaiKhoan_NhanVien", new { id = Model.ma_NV }) |
+                            @Html.ActionLink("Back to List", "Index")
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

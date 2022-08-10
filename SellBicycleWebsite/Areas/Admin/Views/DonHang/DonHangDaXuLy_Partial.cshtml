@@ -1,0 +1,155 @@
+﻿
+<table class="table table-hover">
+    
+    <thead>
+        <tr>
+            <th style="text-align: center">Mã đơn hàng</th>
+            <th style="text-align: center">Mã khách hàng</th>
+            <th style="text-align: center">Tên khách hàng</th>
+            <th style="text-align: center">Địa chỉ giao hàng</th>
+            <th style="text-align: center">Tên người nhận</th>
+            <th style="text-align: center">SDT người nhận</th>
+            <th style="text-align: center">Tổng tiền</th>
+            <th style="text-align: center">Thao tác</th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+        @foreach (var it in Model)
+        {
+            <!-- group-adcordio / start -->
+            <!-- group-adcordio / start -->
+            <tr class="accordion-toggle" data-toggle="collapse"
+                data-target="#col5">
+                <td style="text-align: center">@it.ma_DH</td>
+                <td style="text-align: center">@it.ma_KH</td>
+                <td style="text-align: center">@it.KhachHang.ten_KH</td>
+                <td style="text-align: center">@it.diachi_giaohang</td>
+                <td style="text-align: center">@it.hoten_nguoinhan</td>
+                <td style="text-align: center">@it.sdt_nguoinhan</td>
+                <td style="text-align: center">@it.tongtien</td>
+
+
+                <td style="text-align: center">
+                    <div class="btn-group" role="group"
+                         data-toggle="tooltip"
+                         data-placement="top">
+                        <button type="button" class="btn btn-bg-c-green"
+                                onclick="location.href = '@Url.Action("ChiTietDonHang",new {id = it.ma_DH })'">
+                            Chi tiết
+                        </button>
+                       
+                        <button type="button" class="btn btn-warning btn-sm waves-effect waves-light"
+                                onclick="location.href = '@Url.Action("SuaDonHang",new {id = it.ma_DH })'"
+                                data-toggle="modal"
+                                data-target="#editUser">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm waves-effect waves-light"
+                                onclick="location.href = '@Url.Action("XoaDonHang",new {id = it.ma_DH })'"
+                                data-toggle="modal"
+                                data-target="#deleteModal">
+                            <i class="fa fa-trash"
+                               aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr class="no_hover">
+                <td colspan="4" style="padding:0px">
+                    <div class="accordion-body collapse"
+                         id="col1">
+                        <div id="exTab2">
+                            <ul class="nav nav-tabs md-tabs"
+                                role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active"
+                                       data-toggle="tab"
+                                       href="#3" role="tab">
+                                        Thông
+                                        tin
+                                    </a>
+                                    <div class="slide"></div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       data-toggle="tab"
+                                       href="#4" role="tab">
+                                        Đơn
+                                        hàng
+                                    </a>
+                                    <div class="slide"></div>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active"
+                                     id="3">
+                                    <div class="box-info">
+                                        <div class="row">
+                                            <div class="col-md-6 col-xl-6">
+                                                <ul class="list-info border-r">
+                                                    <li>
+                                                        <span>
+                                                            <strong>Tên:</strong>
+
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <span>
+                                                            <strong>
+                                                                Điện thoại
+
+                                                            </strong>
+
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <span>
+                                                            <strong>
+                                                                Địa chỉ:
+
+                                                            </strong>
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <span>
+                                                            <strong>
+                                                                Email
+                                                                :
+                                                            </strong>
+
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- col / end -->
+                                            <!-- col / end -->
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button"
+                                                    data-dismiss="modal"
+                                                    data-toggle="modal"
+                                                    data-target="#editcustomeModal"
+                                                    class="btn btn-warning btn-outline-warning">
+                                                <i class="ti-pencil"></i>
+                                            </button>
+                                            <button type="button"
+                                                    data-dismiss="modal"
+                                                    data-toggle="modal"
+                                                    data-target="#deleteModal"
+                                                    class="btn btn-danger btn-outline-danger">
+                                                <i class="ti-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
